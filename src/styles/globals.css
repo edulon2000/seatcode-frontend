@@ -81,3 +81,112 @@ body {
     height: 100%;
     z-index: 1;
   }
+  .about-us-container {
+    overflow-x: hidden;
+  }
+  
+  .hero-section {
+    background: linear-gradient(180deg, #000, #444);
+    color: #fff;
+  }
+  
+  .values-section {
+    background: #f7f7f7;
+    padding: 50px 0;
+  }
+  
+  .value-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .history-section {
+    background: #e5e5e5;
+  }
+  
+  .leader-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .leader-card:hover {
+    transform: scale(1.05);
+  }
+ /* styles/globals.css */
+
+/* Estilo para o Hero Section */
+.hero-section {
+  position: relative;
+  z-index: 10; /* Garante que o Hero Section fique abaixo do dropdown */
+}
+
+/* Estilo para o dropdown */
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%; /* Coloca o dropdown abaixo do item do menu */
+  width: 200px; /* Ajuste o tamanho conforme necessário */
+  background-color: #000; /* Cor de fundo do dropdown */
+  color: #fff; /* Cor do texto no dropdown */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra do dropdown */
+  border-radius: 4px; /* Bordas arredondadas do dropdown */
+  z-index: 50; /* Garante que o dropdown apareça acima do Hero Section */
+  display: none; /* Inicialmente escondido */
+}
+
+.dropdown-menu.show {
+  display: block; /* Mostra o dropdown quando necessário */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff; /* Cor do texto */
+}
+
+.dropdown-menu a:hover {
+  background-color: #333; /* Cor de fundo ao passar o mouse */
+}
+/* styles/globals.css */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.contact-form button {
+  padding: 0.75rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #333;
+}

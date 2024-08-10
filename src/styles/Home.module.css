@@ -3,4 +3,8 @@
     background-size: cover;
     background-position: center;
   }
+.hero-section {
+    position: relative;
+    z-index: 10; /* Garante que o Hero Section fique abaixo do dropdown */
+  }
   

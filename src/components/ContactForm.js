@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import api from '../utils/api';
+import InputMask from 'react-input-mask';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
 
@@ -18,12 +20,37 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form data before submission:', formData);
+
+    // Basic client-side validation
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(formData.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate phone number format
+    const phonePattern = /^\d{11}$/; // Adjusted for 11 digits
+    if (!phonePattern.test(formData.phone.replace(/\D/g, ''))) { // Remove non-digit characters
+      alert("Please enter a valid phone number (11 digits).");
+      return;
+    }
+
     try {
+      console.log('Sending request to backend...');
       const response = await api.post('/contacts', formData);
       console.log('Contact saved:', response.data);
-      setFormData({ name: '', email: '', message: '' });
+      alert('Your message has been sent successfully!');
+      setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (error) {
       console.error('Error saving contact:', error);
+      alert('There was an error sending your message. Please try again.');
     }
   };
 
@@ -41,6 +68,7 @@ const ContactForm = () => {
               className="w-full p-2 border border-gray-300 rounded"
               value={formData.name}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="mb-4">
@@ -52,6 +80,23 @@ const ContactForm = () => {
               className="w-full p-2 border border-gray-300 rounded"
               value={formData.email}
               onChange={handleChange}
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              title="Enter a valid email address"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="phone" className="block text-left mb-2">Phone</label>
+            <InputMask
+              mask="(99) 99999-9999"
+              id="phone"
+              name="phone"
+              className="w-full p-2 border border-gray-300 rounded"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              maskChar={null} // Avoid showing mask characters in input
+              title="Enter a valid phone number (11 digits)"
             />
           </div>
           <div className="mb-4">
@@ -63,6 +108,7 @@ const ContactForm = () => {
               rows="4"
               value={formData.message}
               onChange={handleChange}
+              required
             />
           </div>
           <button
