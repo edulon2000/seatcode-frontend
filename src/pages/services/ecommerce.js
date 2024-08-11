@@ -1,16 +1,15 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const EcommerceDevelopment = () => (
   <div className="ecommerce-development">
-    <section className="hero bg-black text-white py-20 text-center">
+    <section className="hero bg-gradient-to-r from-green-600 via-teal-600 to-blue-600 text-white py-20 text-center">
       <motion.h1
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="text-4xl font-bold"
+        className="text-5xl font-bold"
       >
         Desenvolvimento de E-commerce
       </motion.h1>
@@ -20,21 +19,21 @@ const EcommerceDevelopment = () => (
         transition={{ duration: 1, delay: 0.5 }}
         className="text-lg mt-4"
       >
-        Soluções completas para criar e gerenciar sua loja virtual com eficiência e segurança.
+        Soluções completas para criar, gerenciar e otimizar sua loja virtual e presença online.
       </motion.p>
     </section>
 
-    <section className="features-section py-20 bg-white text-black">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section className="features-section py-20 bg-gray-100 text-black">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="feature-card p-4 shadow-lg rounded-lg"
+          className="feature-card p-6 bg-white shadow-xl rounded-lg hover:shadow-2xl hover:scale-105 transition-transform"
         >
-          <h2 className="text-2xl font-bold mb-2">Criação e manutenção de websites</h2>
+          <h2 className="text-2xl font-bold mb-2 text-teal-600">Criação e Manutenção de Websites</h2>
           <p>
-            Desenvolvemos sites personalizados, focados na experiência do usuário, desempenho e segurança.
+            Desenvolvemos websites modernos e funcionais, garantindo a melhor experiência de usuário e manutenção contínua.
           </p>
         </motion.div>
 
@@ -42,11 +41,11 @@ const EcommerceDevelopment = () => (
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="feature-card p-4 shadow-lg rounded-lg"
+          className="feature-card p-6 bg-white shadow-xl rounded-lg hover:shadow-2xl hover:scale-105 transition-transform"
         >
-          <h2 className="text-2xl font-bold mb-2">Desenvolvimento de lojas virtuais</h2>
+          <h2 className="text-2xl font-bold mb-2 text-teal-600">Desenvolvimento de Lojas Virtuais</h2>
           <p>
-            Criamos plataformas de e-commerce sob medida, com funcionalidades que atendem às necessidades do seu negócio.
+            Criamos lojas virtuais personalizadas, com integração de métodos de pagamento, gerenciamento de produtos e muito mais.
           </p>
         </motion.div>
 
@@ -54,30 +53,30 @@ const EcommerceDevelopment = () => (
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="feature-card p-4 shadow-lg rounded-lg"
+          className="feature-card p-6 bg-white shadow-xl rounded-lg hover:shadow-2xl hover:scale-105 transition-transform"
         >
-          <h2 className="text-2xl font-bold mb-2">Otimização de sites para motores de busca (SEO)</h2>
+          <h2 className="text-2xl font-bold mb-2 text-teal-600">Otimização para Motores de Busca (SEO)</h2>
           <p>
-            Maximize a visibilidade do seu site nos motores de busca, atraindo mais visitantes e aumentando suas vendas.
+            Melhoramos a visibilidade do seu site em mecanismos de busca, aumentando o tráfego e as vendas.
           </p>
         </motion.div>
       </div>
     </section>
 
-    <section className="cta-section bg-gray-200 py-20 text-center">
+    <section className="cta-section bg-teal-600 py-20 text-center text-white">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="text-3xl font-bold mb-4"
       >
-        Pronto para transformar seu negócio online?
+        Pronto para transformar sua presença online?
       </motion.h2>
       <p className="text-lg mb-8">
-        Entre em contato com nossa equipe e descubra como podemos ajudar você a alcançar o sucesso no comércio eletrônico.
+        Estamos aqui para ajudar a criar um e-commerce de sucesso. Fale conosco e comece sua jornada digital hoje!
       </p>
       <Link href="/contact">
-        <div className="bg-black text-white py-2 px-4 rounded transition-transform transform hover:scale-105 cursor-pointer">
+        <div className="bg-white text-teal-600 py-2 px-6 rounded transition-transform transform hover:scale-110 cursor-pointer text-lg inline-block max-w-xs mx-auto">
           Fale Conosco
         </div>
       </Link>

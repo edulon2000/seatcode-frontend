@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from '../styles/Navbar.module.css'; // Importa o CSS Module
 
 const Navbar = () => {
@@ -9,15 +9,20 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const navRef = useRef(null);
 
-  const handleMouseEnter = () => {
-    setIsServicesOpen(true);
-  };
-
+  // Função para verificar se o mouse está sobre o nav ou o dropdown
   const handleMouseLeave = (e) => {
-    // Check if mouse is leaving both the nav item and the dropdown
-    if (navRef.current && !navRef.current.contains(e.relatedTarget)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(e.relatedTarget) &&
+      navRef.current &&
+      !navRef.current.contains(e.relatedTarget)
+    ) {
       setIsServicesOpen(false);
     }
+  };
+
+  const handleMouseEnter = () => {
+    setIsServicesOpen(true);
   };
 
   return (
@@ -47,7 +52,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <Link href="/services" className={styles.navLink}>
-              Services
+              Services ▾
             </Link>
             {isServicesOpen && (
               <motion.ul
@@ -55,10 +60,11 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="absolute bg-black shadow-lg mt-2 z-50"
+                className="absolute bg-black shadow-lg z-50" // Remova mt-2
                 ref={dropdownRef}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                style={{ top: '100%', marginTop: '-1px' }} // Ajuste a posição
               >
                 <li>
                   <Link href="/services/ecommerce" className="block px-4 py-2 hover:bg-gray-700">
@@ -76,12 +82,12 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/software-development" className="block px-4 py-2 hover:bg-gray-700">
+                  <Link href="/services/software" className="block px-4 py-2 hover:bg-gray-700">
                     Software Development
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/cloud-services" className="block px-4 py-2 hover:bg-gray-700">
+                  <Link href="/services/cloud" className="block px-4 py-2 hover:bg-gray-700">
                     Cloud Services
                   </Link>
                 </li>
@@ -91,7 +97,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/erp-implementation" className="block px-4 py-2 hover:bg-gray-700">
+                  <Link href="/services/erp" className="block px-4 py-2 hover:bg-gray-700">
                     ERP Implementation
                   </Link>
                 </li>
