@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Services = () => (
-  <section className="services py-20 bg-gray-100">
+  <section className="services py-20 bg-gray-100 z-50">
     <div className="container mx-auto text-center">
       <motion.h2
         initial={{ opacity: 0, y: -50 }}

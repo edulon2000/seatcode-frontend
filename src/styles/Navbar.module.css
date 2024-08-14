@@ -41,7 +41,7 @@
   background-color: #1f2937; /* Cor de fundo do dropdown */
   color: #fff; /* Cor do texto no dropdown */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra do dropdown */
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 12px; /* Bordas arredondadas mais sutis */
   z-index: 50;
   display: none;
   opacity: 0;
@@ -49,12 +49,14 @@
   transform: translateY(10px); /* Desloca o dropdown para baixo inicialmente */
 }
 
+/* Adicione um estilo para mostrar o dropdown */
 .dropdown-menu.show {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Estilo para os links dentro do dropdown */
 .dropdown-menu a {
   display: block;
   padding: 12px 16px;
@@ -63,6 +65,8 @@
   transition: background-color 0.3s;
 }
 
+/* Estilo para o hover dos links */
 .dropdown-menu a:hover {
   background-color: #4b5563; /* Cor de fundo ao passar o mouse */
 }
+

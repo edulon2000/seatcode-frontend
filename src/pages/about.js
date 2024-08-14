@@ -83,8 +83,8 @@ const AboutUs = () => (
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
           { name: 'Eduardo Costa', title: 'CEO & CTO',subtle:'Co-founder', image: '/images/edu.jpeg' },
-          { name: 'João Pedro', title: 'COO & CXO Co-founder',subtle:'Co-founder', image: '/images/joao.jpg' },
-          { name: 'Maria Dolores', title: 'CMO & CSO Co-founder',subtle:'Co-founder', image: '/images/dolores.jpg' },
+          { name: 'João Pedro', title: 'COO & CXO ',subtle:'Co-founder', image: '/images/joao.jpg' },
+          { name: 'Maria Dolores', title: 'CMO & CSO ',subtle:'Co-founder', image: '/images/dolores.jpg' },
           // Adicione outros membros
         ].map((leader, index) => (
           <motion.div

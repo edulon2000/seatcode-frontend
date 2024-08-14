@@ -37,7 +37,7 @@ const Navbar = () => {
             <Image
               src="/images/branco.png"
               alt="Logo"
-              width={150}
+              width={140}
               height={40}
               className="object-contain"
             />
